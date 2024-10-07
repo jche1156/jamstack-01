@@ -45,7 +45,6 @@ export default function ScheduleManager() {
           <input type="button" value="Suggest Tasks" onClick={generateSuggestedTasks} />
         </form>
       </section>
-
       <section>
         <h2>Suggested Tasks</h2>
         <div>
