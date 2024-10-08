@@ -1,0 +1,31 @@
+---
+export const prerender = false;
+export const partial = true;
+
+let todoEntries, calendarEntries, data;
+if (Astro.request.method === "POST") {
+    try {
+        data = await Astro.request.formData();
+        todoEntries = data.get("todo").split("\n");
+        calendarEntries = data.get("calendar").split("\n");
+    } catch (error) {
+        if (error instanceof Error) {
+        console.error(error.message);
+    }
+}
+}
+---
+<div id="tasks">
+    <article>
+        <header class="pico-background-azure-200">{"Calendar"}</header>
+        <div>{calendarEntries.map(e => 
+            <p>{e}</p>
+        )}</div>
+    </article>
+    <article>
+        <header class="pico-background-azure-200">{"To Do"}</header>
+        <div>{todoEntries.map(e => 
+            <p>{e}</p>
+        )}</div>
+    </article>
+</div>

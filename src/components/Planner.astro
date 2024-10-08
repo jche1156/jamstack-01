@@ -1,0 +1,43 @@
+---
+const calendarPlaceholder = "8am: Rise and Grind\n9am: Gym\n12pm: Lunch\n3pm: Meeting\n5:30pm: Go Home\n7pm: Dinner\n8pm: Shower\n10pm: Sleep\n";
+const toDoPlaceHolder = "Feed Cat\nChange Litter\nPay Bills\nCook Dinner\nTake Out Trash\nRecycle\nClean Kitchen\nVacuum\n";
+---
+<div>
+    <h1>Personal Schedule Manager</h1>
+    <section>
+        <h2>Input Your Schedule</h2>
+        <form>
+            <div class="grid">
+                <div>
+                    <label>Calendar Entries:</label>
+                    <textarea 
+                    id="calendar" 
+                    name="calendar"
+                    rows="8"
+                    cols="40"
+                    >{calendarPlaceholder}</textarea>
+                    <br />
+                </div>
+                <div>
+                    <label>To-Do List:</label>
+                    <textarea 
+                    id="todo"
+                    name="todo"
+                    rows="8"
+                    cols="40" 
+                    >{toDoPlaceHolder}</textarea><br />
+                </div>
+            </div>
+            <input type="button" value="Suggest Tasks" hx-post="api/choices" hx-target="#tasks"/>
+        </form>
+    </section>
+    <section>
+        <h2>Tasks</h2>
+        <div id="tasks">
+            <article>
+                <header class="pico-background-azure-200">{"Task A"}</header>
+                <p>{"Task A Description"}</p>
+            </article>
+        </div>
+    </section>
+</div>

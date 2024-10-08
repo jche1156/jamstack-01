@@ -9,6 +9,9 @@
       "@component/*": [
         "src/components/*"
       ],
+      "@layout/*": [
+        "src/layout/*"
+      ],
       "@style/*": [
         "src/styles/*"
       ],
